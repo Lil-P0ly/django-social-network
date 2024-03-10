@@ -38,7 +38,7 @@ The Q&A app works just like Stack Overflow. You can mark a question as favorite,
 - jQuery 2
 
 
-## Installation Guide
+## Installation Guide for Linux
 
 	git clone https://github.com/suhailvs/django-social-network
 	cd django-social-network
@@ -49,7 +49,17 @@ The Q&A app works just like Stack Overflow. You can mark a question as favorite,
 	./manage.py migrate
 	./manage.py runserver
 
-vist <http://localhost:8000>
+## Installation Guide for Windows
+
+	git clone https://github.com/suhailvs/django-social-network
+	cd django-social-network
+	python -V:3.9 -m venv env
+	env\Scripts\activate
+	pip install -r requirements.txt
+	python manage.py migrate
+	python manage.py runserver
+
+Перейти на <http://localhost:8000>
 МБ ЧЕТО НАДО ИСПРАВИТЬ В README
 ## Demo
 

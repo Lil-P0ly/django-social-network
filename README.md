@@ -50,7 +50,7 @@ The Q&A app works just like Stack Overflow. You can mark a question as favorite,
 	./manage.py runserver
 
 vist <http://localhost:8000>
-
+МБ ЧЕТО НАДО ИСПРАВИТЬ В README
 ## Demo
 
 Try Django Social Network now at [https://suhail.herokuapp.com][2].

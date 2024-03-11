@@ -53,7 +53,8 @@ The Q&A app works just like Stack Overflow. You can mark a question as favorite,
 
 	git clone https://github.com/Lil-P0ly/django-social-network
 	cd django-social-network
-	python -V:3.9 -m venv env
+ 	copy .env.example .env
+	python -m venv env
 	env\Scripts\activate
 	pip install -r requirements.txt
 	python manage.py migrate

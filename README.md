@@ -40,7 +40,7 @@ The Q&A app works just like Stack Overflow. You can mark a question as favorite,
 
 ## Installation Guide for Linux
 
-	git clone https://github.com/suhailvs/django-social-network
+	git clone https://github.com/Lil-P0ly/django-social-network
 	cd django-social-network
 	cp .env.example .env
 	python3 -m venv env
@@ -51,7 +51,7 @@ The Q&A app works just like Stack Overflow. You can mark a question as favorite,
 
 ## Installation Guide for Windows
 
-	git clone https://github.com/suhailvs/django-social-network
+	git clone https://github.com/Lil-P0ly/django-social-network
 	cd django-social-network
 	python -V:3.9 -m venv env
 	env\Scripts\activate

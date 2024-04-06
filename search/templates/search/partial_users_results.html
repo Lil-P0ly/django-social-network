@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<h2>{% trans 'Users' %}</h2>
+<h2>{% trans 'Пользователи' %}</h2>
 {% if results %}
   <ul class="users-results">
     {% for user_result in results %}
@@ -16,5 +16,5 @@
     {% endfor %}
   </ul>
 {% else %}
-  <h4 class="no-result">{% trans 'No user found' %} :(</h4>
+  <h4 class="no-result">{% trans 'Не найдено пользователей' %} :(</h4>
 {% endif %}

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.html import escape
@@ -58,13 +59,13 @@ class Notification(models.Model):
         (ALSO_COMMENTED, 'Also Commented'),
         )
 
-    _LIKED_TEMPLATE = u'<a href="/{0}/">{1}</a> liked your post: <a href="/feeds/{2}/">{3}</a>'
-    _COMMENTED_TEMPLATE = u'<a href="/{0}/">{1}</a> commented on your post: <a href="/feeds/{2}/">{3}</a>'
-    _FAVORITED_TEMPLATE = u'<a href="/{0}/">{1}</a> favorited your question: <a href="/questions/{2}/">{3}</a>'
-    _ANSWERED_TEMPLATE = u'<a href="/{0}/">{1}</a> answered your question: <a href="/questions/{2}/">{3}</a>'
-    _ACCEPTED_ANSWER_TEMPLATE = u'<a href="/{0}/">{1}</a> accepted your answer: <a href="/questions/{2}/">{3}</a>'
-    _EDITED_ARTICLE_TEMPLATE = u'<a href="/{0}/">{1}</a> edited your article: <a href="/article/{2}/">{3}</a>'
-    _ALSO_COMMENTED_TEMPLATE = u'<a href="/{0}/">{1}</a> also commentend on the post: <a href="/feeds/{2}/">{3}</a>'
+    _LIKED_TEMPLATE = u'<a href="/{0}/">{1}</a> лайкнул(а) Вашу запись: <a href="/feeds/{2}/">{3}</a>'
+    _COMMENTED_TEMPLATE = u'<a href="/{0}/">{1}</a> прокомментировал(а) Вашу запись: <a href="/feeds/{2}/">{3}</a>'
+    _FAVORITED_TEMPLATE = u'<a href="/{0}/">{1}</a> добавил(а) в избранное Ваш вопрос: <a href="/questions/{2}/">{3}</a>'
+    _ANSWERED_TEMPLATE = u'<a href="/{0}/">{1}</a> ответил(а) на Ваш вопрос: <a href="/questions/{2}/">{3}</a>'
+    _ACCEPTED_ANSWER_TEMPLATE = u'<a href="/{0}/">{1}</a> принял(а) Ваш ответ: <a href="/questions/{2}/">{3}</a>'
+    _EDITED_ARTICLE_TEMPLATE = u'<a href="/{0}/">{1}</a> отредактировал(а): <a href="/article/{2}/">{3}</a>'
+    _ALSO_COMMENTED_TEMPLATE = u'<a href="/{0}/">{1}</a> добавил(а) комментарий к Вашей записи: <a href="/feeds/{2}/">{3}</a>'
 
     from_user = models.ForeignKey(User, related_name='+', on_delete=models.CASCADE)
     to_user = models.ForeignKey(User, related_name='+', on_delete=models.CASCADE)
@@ -132,7 +133,7 @@ class Notification(models.Model):
                 escape(self.get_summary(self.feed.post))
                 )
         else:
-            return 'Ooops! Something went wrong.'
+            return 'Упс! Что-то пошло не так.'
 
     def get_summary(self, value):
         summary_size = 50

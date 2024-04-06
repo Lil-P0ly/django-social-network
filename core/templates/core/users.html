@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-{% block title %}{% trans 'Users' %}{% endblock %}
+{% block title %}{% trans 'Пользователи' %}{% endblock %}
 
 {% block main %}
   <div class="page-header">
-    <h1>Users</h1>
+    <h1>Пользователи</h1>
   </div>
   <br>
 <form method='GET'>
   <div class="row">
     <div class="col-sm-4">
       <div class="input-group">        
-        <input type="text" class="form-control" name='q' value='{{ request.GET.q }}' placeholder="Search for users...">
+        <input type="text" class="form-control" name='q' value='{{ request.GET.q }}' placeholder="Поиск пользователей...">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="submit">Search...</button>
+          <button class="btn btn-default" type="submit">Поиск</button>
         </span>
       </div><!-- /input-group -->
     </div>
@@ -23,7 +23,7 @@
 <br>
 {% if request.GET.q %}
 <form method='GET'>
-  filtered users by <span class="label label-default">{{request.GET.q}}</span> <button class="btn btn-default btn-xs">clear filter</button>
+  Пользователи по запросу <span class="label label-default">{{request.GET.q}}</span> <button class="btn btn-default btn-xs">Очистить фильтры</button>
 </form>
 {% endif %}
 <div class="row">
@@ -38,19 +38,19 @@
       </div>
       <div class="media-body" style="font-size: 12px">
         <a href="{% url 'profile' user.username %}">{{ user.profile.get_screen_name }}</a><br>
-        <strong>Username:</strong> {{user.username}}<br>
+        <strong>Имя:</strong> {{user.username}}<br>
         {{user.email}}<br>
-        {% if user.profile.job_title %}
-          <strong>{% trans 'Job Title' %}:</strong> {{ user.profile.job_title }}<br>
-        {% endif %}
         {% if user.profile.location %}
-          <strong>{% trans 'Location' %}:</strong> {{ user.profile.location }}<br>
+          <strong>{% trans 'Факультет' %}:</strong> {{ user.profile.location }}<br>
+        {% endif %}
+        {% if user.profile.job_title %}
+          <strong>{% trans 'Интересы' %}:</strong> {{ user.profile.job_title }}<br>
         {% endif %}
       </div>
     </div>
   </div>
 {% empty %}
-  <div class="col-sm-6"><p class="text-warning">No users matched your search.</p></div>
+  <div class="col-sm-6"><p class="text-warning">Пользователи не найдены.</p></div>
 {% endfor %}
 </div>
 

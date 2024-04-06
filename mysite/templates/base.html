@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Django Social Network{% endblock %}</title>
+    <title>{% block title %}Найди друга{% endblock %}</title>
     <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="{% static 'css/bootcamp.css' %}?v=1" rel="stylesheet">
@@ -24,25 +24,25 @@
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">Навигация по сайту</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="{% url 'home' %}">Social Network</a>
+              <a class="navbar-brand" href="{% url 'home' %}">Найди друга</a>
             </div>
             <div class="collapse navbar-collapse" id="menu">
               <ul class="nav navbar-nav">
                 
-                <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
-                <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
-                <li><a href="{% url 'questions' %}">{% trans 'Q&A' %}</a></li>
-                <li><a href="{% url 'users' %}">{% trans 'Users' %}</a></li>
+                <li><a href="{% url 'feeds' %}">{% trans 'Новости' %}</a></li>
+                <li><a href="{% url 'articles' %}">{% trans 'События' %}</a></li>
+                <li><a href="{% url 'questions' %}">{% trans 'Вопросы' %}</a></li>
+                <li><a href="{% url 'users' %}">{% trans 'Пользователи' %}</a></li>
               </ul>
               {% if not hide_search %}
                 <form class="navbar-form navbar-left" role="search" action="{% url 'search' %}">
                   <div class="input-group" style="width:210px">
-                    <input type="text" class="form-control" name="q" placeholder="Search">
+                    <input type="text" class="form-control" name="q" placeholder="Поиск">
                     <span class="input-group-btn">
                       <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                     </span>
@@ -52,18 +52,18 @@
 
               <ul class="nav navbar-nav navbar-right">
                 <li>
-                  <a href="#" id="notifications" data-container="body" data-toggle="popover" data-placement="bottom" title="Notifications">
+                  <a href="#" id="notifications" data-container="body" data-toggle="popover" data-placement="bottom" title="Уведомления">
                     <span class="glyphicon glyphicon-bell"></span>
                   </a>
                 </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.profile.get_screen_name }} <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="{% url 'profile' user.username %}">My Profile</a></li>
-                    <li><a href="{% url 'inbox' %}"><span class="badge pull-right" id="unread-count">0</span> Inbox</a></li>
-                    <li><a href="{% url 'settings' %}">{% trans 'Account Settings' %}</a></li>
+                    <li><a href="{% url 'profile' user.username %}">Мой профиль</a></li>
+                    <li><a href="{% url 'inbox' %}"><span class="badge pull-right" id="unread-count">0</span> Сообщения</a></li>
+                    <li><a href="{% url 'settings' %}">{% trans 'Настройки' %}</a></li>
                     <li class="divider"></li>
-                    <li><a href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
+                    <li><a href="{% url 'logout' %}">{% trans 'Выйти' %}</a></li>
                   </ul>
                 </li>
               </ul>

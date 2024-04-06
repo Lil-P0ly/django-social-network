@@ -8,8 +8,8 @@
 
 {% block main %}
   <ol class="breadcrumb">
-    <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
-    <li class="active">{% trans 'Write Article' %}</li>
+    <li><a href="{% url 'articles' %}">{% trans 'События' %}</a></li>
+    <li class="active">{% trans 'Создать событие' %}</li>
   </ol>
   <form action="{% url 'write' %}" method="post" role="form">
     {% csrf_token %}
@@ -30,10 +30,10 @@
       </div>
     {% endfor %}
     <div class="form-group">
-      <button type="button" class="btn btn-primary publish">{% trans 'Publish' %}</button>
-      <button type="button" class="btn btn-default draft">{% trans 'Save Draft' %}</button>
-      <button type="button" class="btn btn-default preview" data-toggle="modal" data-target="#preview">{% trans 'Preview' %}</button>
-      <a href="{% url 'articles' %}" class="btn btn-default">{% trans 'Cancel' %}</a>
+      <button type="button" class="btn btn-primary publish">{% trans 'Создать' %}</button>
+      <button type="button" class="btn btn-default draft">{% trans 'Сохранить черновик' %}</button>
+      <button type="button" class="btn btn-default preview" data-toggle="modal" data-target="#preview">{% trans 'Предварительный просмотр' %}</button>
+      <a href="{% url 'articles' %}" class="btn btn-default">{% trans 'Отмена' %}</a>
     </div>
   </form>
 
@@ -42,11 +42,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Article Preview</h4>
+          <h4 class="modal-title">Предварительный просмотр</h4>
         </div>
         <div class="modal-body"></div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
         </div>
       </div>
     </div>

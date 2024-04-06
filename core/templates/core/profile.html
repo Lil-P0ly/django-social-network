@@ -23,27 +23,27 @@
     <div class="row tile_count">
       <!-- Data tiles -->
       <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-envelope"></i> {% trans 'Feeds' %}</span>
+        <span class="count_top"><i class="glyphicon glyphicon-envelope"></i> {% trans 'Записи' %}</span>
         <div class="count">{{ counts.feeds }}</div>
       </div>
       <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-pencil"></i> {% trans 'Articles' %}</span>
+        <span class="count_top"><i class="glyphicon glyphicon-pencil"></i> {% trans 'События' %}</span>
         <div class="count">{{ counts.article }}</div>
       </div>
       <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-comment"></i> {% trans 'Comments' %}</span>
+        <span class="count_top"><i class="glyphicon glyphicon-comment"></i> {% trans 'Комментарии' %}</span>
         <div class="count">{{ counts.article_comment }}</div>
       </div>
       <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-question-sign"></i> {% trans 'Questions' %}</span>
+        <span class="count_top"><i class="glyphicon glyphicon-question-sign"></i> {% trans 'Вопросы' %}</span>
         <div class="count">{{ counts.question }}</div>
       </div>
       <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-education"></i> {% trans 'Answers' %}</span>
+        <span class="count_top"><i class="glyphicon glyphicon-education"></i> {% trans 'Ответы' %}</span>
         <div class="count">{{ counts.answer }}</div>
       </div>
       <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-fire"></i> {% trans 'Global Interactions' %}</span>
+        <span class="count_top"><i class="glyphicon glyphicon-fire"></i> {% trans 'Общая активность' %}</span>
         <div class="count">{{ global_interactions }}</div>
       </div>
       <!-- /data tiles -->
@@ -57,10 +57,10 @@
             <li><span class="glyphicon glyphicon-briefcase"></span> {{ page_user.profile.job_title }}</li>
           {% endif %}
           {% if page_user.profile.location %}
-            <li><span class="glyphicon glyphicon-map-marker"></span> {{ page_user.profile.location }}</li>
+            <li><strong>{% trans 'Факультет: ' %}</strong> {{ page_user.profile.location }}</li>
           {% endif %}
           {% if page_user.profile.url %}
-            <li><span class="glyphicon glyphicon-globe"></span> <a href="{{ page_user.profile.get_url }}" target="_blank">{{ page_user.profile.get_url }}</a></li>
+            <li><strong>{% trans 'Курс: ' %}</strong>{{ page_user.profile.url }} </li>
           {% endif %}
         </ul>
       </div>
@@ -68,10 +68,10 @@
       <!--Bar graphic chart-->
       <div class="col-md-9">
           <ul class="nav nav-pills">
-            <li class="active"><a  href="#1b" data-toggle="tab">{% trans 'Last Feeds' %}</a></li>
-            <li><a href="#2b" data-toggle="tab">Activity by type</a></li>
-            <li><a href="#3b" data-toggle="tab">Activity by day</a></li>
-            <li><a href="#4b" data-toggle="tab">Activity by Total</a></li>
+            <li class="active"><a  href="#1b" data-toggle="tab">{% trans 'Последние записи' %}</a></li>
+            <li><a href="#2b" data-toggle="tab">Активность по типу</a></li>
+            <li><a href="#3b" data-toggle="tab">Активность по дням</a></li>
+            <li><a href="#4b" data-toggle="tab">Вся активность</a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="1b">
@@ -103,7 +103,7 @@
       </div>
     </div>
     <script type="text/javascript">
-      var bar_labels = ["Feeds", "Articles", "Comments", "Questions", "Answers", "Activities"];
+      var bar_labels = ["Записи", "События", "Комментарии", "Вопросы", "Ответы", "Взаимодействия"];
       var bar_data = {{ bar_data }};
       var line_data = {{ line_data|safe }};
       var line_labels = {{ line_labels|safe }};

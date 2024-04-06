@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from authentication.forms import SignUpForm
@@ -13,7 +14,7 @@ class SignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        welcome_post = u'{0} has joined the network.'.format(user.username, user.username)
+        welcome_post = u'Пользователь {0} зарегистрировался в сети.'.format(user.username, user.username)
         feed = Feed(user=user, post=welcome_post)
         feed.save()
 

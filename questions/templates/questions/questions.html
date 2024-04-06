@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}Questions{% endblock %}
+{% block title %}Вопросы{% endblock %}
 
 {% block head %}
   <link href="{% static 'css/questions.css' %}" rel="stylesheet">
@@ -12,20 +12,20 @@
 {% block main %}
   <div class="page-header">
     <a href="{% url 'ask' %}" class="btn btn-primary pull-right">
-      <span class="glyphicon glyphicon-bullhorn"></span> {% trans "Ask Question" %}
+      <span class="glyphicon glyphicon-bullhorn"></span> {% trans "Задать вопрос" %}
     </a>
-    <h1>{% trans "Questions" %}</h1>
+    <h1>{% trans "Вопросы" %}</h1>
   </div>
   <div class="questions">
     <ul class="nav nav-tabs" style="margin-bottom: 1.4em">
-      <li{% if active == 'unanswered' %} class="active"{% endif %}><a href="{% url 'unanswered' %}">{% trans "Unanswered" %}</a></li>
-      <li{% if active == 'answered' %} class="active"{% endif %}><a href="{% url 'answered' %}">{% trans "Answered" %}</a></li>
-      <li{% if active == 'all' %} class="active"{% endif %}><a href="{% url 'all' %}">{% trans "All Questions" %}</a></li>
+      <li{% if active == 'unanswered' %} class="active"{% endif %}><a href="{% url 'unanswered' %}">{% trans "Без ответа" %}</a></li>
+      <li{% if active == 'answered' %} class="active"{% endif %}><a href="{% url 'answered' %}">{% trans "С ответом" %}</a></li>
+      <li{% if active == 'all' %} class="active"{% endif %}><a href="{% url 'all' %}">{% trans "Все вопросы" %}</a></li>
     </ul>
     {% for question in questions %}
       {% include 'questions/partial_question.html' with question=question %}
     {% empty %}
-      <h4 class="no-data">{% trans "No question to display" %}</h4>
+      <h4 class="no-data">{% trans "Здесь пока нет вопросов" %}</h4>
     {% endfor %}
     {% include 'paginator.html' with paginator=questions %}
   </div>

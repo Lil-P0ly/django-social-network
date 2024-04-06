@@ -9,7 +9,7 @@ function setBarChart(){
         data: {
             labels: bar_labels,
             datasets: [{
-                label: 'Activities by type:',
+                label: 'Активности по типу:',
                 data: bar_data,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -40,7 +40,7 @@ function setBarChart(){
             },
             title: {
                 display: true,
-                text: 'User activity by type.'
+                text: 'Активность пользователя по типу.'
             }
         }
     });
@@ -53,7 +53,7 @@ function setLineChart(){
         data: {
             labels: line_labels,
             datasets: [{
-                label: 'Daily Activity:',
+                label: 'Активность по дням:',
                 data: line_data,
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)'
@@ -75,7 +75,7 @@ function setLineChart(){
             },
             title: {
                 display: true,
-                text: 'User activity by day.'
+                text: 'Активность пользователя по дням.'
             }
         }
     });
@@ -88,7 +88,7 @@ function setDoughnutChart(){
         data: {
             labels: bar_labels,
             datasets: [{
-                label: 'Activities by total participation:',
+                label: 'Вся активность:',
                 data: bar_data,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -122,7 +122,7 @@ function setDoughnutChart(){
             },
             title: {
                 display: true,
-                text: 'User activity by total participation.'
+                text: 'Вся активность пользователя.'
             }
         }
     });

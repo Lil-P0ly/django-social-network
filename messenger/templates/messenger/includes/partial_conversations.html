@@ -3,7 +3,7 @@
 <div class="list-group">
   {% comment %}
   <a href="{% url 'inbox' %}" class="list-group-item{% if active == 'inbox' %} active{% endif %}">
-    <span>{% trans 'Inbox' %}</span>
+    <span>{% trans 'Сообщения' %}</span>
     <span class="badge">0</span>
   </a>
   {% endcomment %}
@@ -18,6 +18,6 @@
       {% endif %}
     </a>
   {% empty %}
-    <a href="#" class="list-group-item">{% trans 'Start a conversation' %}</a>
+    <a href="#" class="list-group-item">{% trans 'У вас нет переписок' %}</a>
   {% endfor %}
 </div>

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -97,7 +98,7 @@ def preview(request):
     try:
         if request.method == 'POST':
             content = request.POST.get('content')
-            html = 'Nothing to display :('
+            html = 'Нечего выводить :('
             if len(content.strip()) > 0:
                 html = markdown.markdown(content, safe_mode='escape')
             return HttpResponse(html)

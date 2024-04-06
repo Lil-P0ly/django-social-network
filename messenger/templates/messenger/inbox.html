@@ -1,9 +1,9 @@
 {% extends 'messenger/base_messages.html' %}
 {% load i18n %}
 
-{% block title %}{% trans 'Inbox' %}{% endblock %}
+{% block title %}{% trans 'Сообщения' %}{% endblock %}
 
-{% block page_header %}{% trans 'Inbox' %}{% endblock %}
+{% block page_header %}{% trans 'Сообщения' %}{% endblock %}
 
 {% block container %}
   {% if messages %}
@@ -17,12 +17,12 @@
         <form role="form" method="post" action="{% url 'send_message' %}" id="send">
           {% csrf_token %}
           <input type="hidden" name="to" value="{{ active }}">
-          <input class="form-control" type="text" name="message" placeholder="Write a message..." maxlength="1000" autocomplete="off">
+          <input class="form-control" type="text" name="message" placeholder="Написать сообщение..." maxlength="1000" autocomplete="off">
         </form>
       </div>
     </li>
   </ul>
   {% else %}
-    <h4>Your inbox is empty!</h4>
+    <h4>Сообщений пока нет :(</h4>
   {% endif %}
 {% endblock container %}

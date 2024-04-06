@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os, json
 from PIL import Image
 
@@ -51,10 +52,13 @@ class UserList(ListView):
         queryset = User.objects.filter(is_active=True).order_by('username')
         if query:
             queryset = queryset.filter(
-                Q(username__icontains = query)|
-                Q(email__icontains = query)|
-                Q(first_name__icontains = query)|
-                Q(last_name__icontains = query)
+                Q(username__iregex=query) |
+                Q(first_name__iregex=query) |
+                Q(last_name__iregex=query) |
+                Q(email__iregex=query) |
+                Q(profile__job_title__iregex=query) |
+                Q(profile__url__iregex=query) |
+                Q(profile__location__iregex=query)
             )
         return queryset
 
@@ -69,7 +73,7 @@ def profile(request, username):
     counts = {
         'feeds': Feed.objects.filter(user=user).count(),
         'article':Article.objects.filter(create_user=user).count(),
-        'article_comment':ArticleComment.objects.filter(user=user).count(),
+        'article_comment': ArticleComment.objects.filter(user=user).count(),
         'question':Question.objects.filter(user=user).count(),
         'answer':Answer.objects.filter(user=user).count(),
         'activity':Activity.objects.filter(user=user).count(),
@@ -106,7 +110,7 @@ def settings(request):
             user.profile.url = form.cleaned_data.get('url')
             user.profile.location = form.cleaned_data.get('location')
             user.save()
-            messages.add_message(request, messages.SUCCESS, 'Your profile were successfully edited.')
+            messages.add_message(request, messages.SUCCESS, 'Ваш профиль успешно изменен.')
     else:
         form = ProfileForm(instance=user, initial={
             'job_title': user.profile.job_title,
@@ -134,7 +138,7 @@ def password(request):
             new_password = form.cleaned_data.get('new_password')
             user.set_password(new_password)
             user.save()
-            messages.add_message(request, messages.SUCCESS, 'Your password were successfully changed.')
+            messages.add_message(request, messages.SUCCESS, 'Ваш пароль был успешно изменен')
     else:
         form = ChangePasswordForm(instance=user)
     return render(request, 'core/password.html', {'form':form})
@@ -158,7 +162,7 @@ def upload_picture(request):
             new_size = new_width, new_height
             im.thumbnail(new_size, Image.ANTIALIAS)
             im.save(filename)
-        return redirect('/settings/picture/?upload_picture=uploaded')
+        return redirect('/settings/upload_picture=uploaded')
     except Exception:
         # print e
         return redirect('/settings/picture/')

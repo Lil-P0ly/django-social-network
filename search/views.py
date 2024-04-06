@@ -22,10 +22,17 @@ def search(request):
         count = {}
         results = {}
 
-        results['feed'] = Feed.objects.filter(post__icontains=querystring, parent=None)
-        results['articles'] = Article.objects.filter(Q(title__icontains=querystring) | Q(content__icontains=querystring))
-        results['questions'] = Question.objects.filter(Q(title__icontains=querystring) | Q(description__icontains=querystring))
-        results['users'] = User.objects.filter(Q(username__icontains=querystring) | Q(first_name__icontains=querystring) | Q(last_name__icontains=querystring))
+        results['feed'] = Feed.objects.filter(post__iregex=querystring, parent=None)
+        results['articles'] = Article.objects.filter(Q(title__iregex=querystring) | Q(content__iregex=querystring))
+        results['questions'] = Question.objects.filter(Q(title__iregex=querystring) | Q(description__iregex=querystring))
+        results['users'] = User.objects.filter(
+            Q(username__iregex=querystring) |
+            Q(first_name__iregex=querystring) |
+            Q(last_name__iregex=querystring) |
+            Q(email__iregex=querystring) |
+            Q(profile__job_title__iregex=querystring) |
+            Q(profile__url__iregex=querystring) |
+            Q(profile__location__iregex=querystring))
         
         count['feed'] = results['feed'].count()
         count['articles'] = results['articles'].count()

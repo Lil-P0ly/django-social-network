@@ -8,12 +8,12 @@
   <input type="hidden" name="next" value="{{ next }}">
   {{ form.username|as_crispy_field }}
   {{ form.password|as_crispy_field }}
-  <button type="submit" class="btn btn-primary btn-block">Log in</button>
+  <button type="submit" class="btn btn-primary btn-block">Вход</button>
   <div class="login-or">
      <hr class="hr-or">
-     <span class="span-or">or</span>
+     <span class="span-or">или</span>
   </div>
-  <p class="text-center">Don't have account? <a href="{% url 'signup' %}">Sign up here</a></p>
+  <p class="text-center">У Вас нет аккаунта?  <a href="{% url 'signup' %}">Зарегистрироваться</a></p>
 
 </form>
 {% endblock form %}

@@ -4,7 +4,7 @@
 
 {% load humanize %}
 
-{% block title %} Notifications {% endblock %}
+{% block title %} Уведомления {% endblock %}
 
 {% block head %}
   <link href="{% static 'css/notifications.css' %}" rel="stylesheet">
@@ -12,7 +12,7 @@
 
 {% block main %}
   <div class="page-header">
-    <h1>Notifications</h1>
+    <h1>Уведомления</h1>
   </div>
   <ul class="all-notifications">
     {% for notification in notifications %}
@@ -24,7 +24,7 @@
         </div>
       </li>
     {% empty %}
-      <li>{% trans 'You have no notification' %}</li>
+      <li>{% trans 'У Вас нет новых уведомлений' %}</li>
     {% endfor %}
   </ul>
 {% endblock main %}

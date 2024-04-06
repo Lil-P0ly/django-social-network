@@ -8,15 +8,15 @@
 
 {% block main %}
   <ol class="breadcrumb">
-    <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
-    <li class="active">{% trans 'Drafts' %}</li>
+    <li><a href="{% url 'articles' %}">{% trans 'События' %}</a></li>
+    <li class="active">{% trans 'Черновики' %}</li>
   </ol>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>{% trans 'Title' %}</th>
-        <th>{% trans 'Content' %}</th>
-        <th>{% trans 'Tags' %}</th>
+        <th>{% trans 'Название' %}</th>
+        <th>{% trans 'Описание' %}</th>
+        <th>{% trans 'Теги' %}</th>
       </tr>
     </thead>
     <tbody>
@@ -33,7 +33,7 @@
       {% empty %}
         <tr>
           <td colspan="4" style="text-align: center">
-            {% trans 'No draft to display' %}
+            {% trans 'Нет черновиков' %}
           </td>
         </tr>
       {% endfor %}

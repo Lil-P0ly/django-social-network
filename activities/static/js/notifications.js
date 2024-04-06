@@ -1,5 +1,5 @@
 $(function () {
-  $('#notifications').popover({html: true, content: 'Loading...', trigger: 'manual'});
+  $('#notifications').popover({html: true, content: 'Загрузка...', trigger: 'manual'});
 
   $("#notifications").click(function () {
     if ($(".popover").is(":visible")) {

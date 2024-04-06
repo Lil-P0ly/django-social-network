@@ -11,16 +11,16 @@
 
 {% block main %}
   <ol class="breadcrumb">
-    <li><a href="{% url 'questions' %}">{% trans "Questions" %}</a></li>
-    <li class="active">{% trans "Question" %}</li>
+    <li><a href="{% url 'questions' %}">{% trans "Вопросы" %}</a></li>
+    <li class="active">{% trans "Вопрос" %}</li>
   </ol>
   <div class="row question" question-id="{{ question.id }}">
     {% csrf_token %}
     <div class="col-md-1 options">
       {% if user in question.get_favoriters %}
-        <span class="glyphicon glyphicon-star favorite favorited" title="Click to mark this question as favorite; click again to toggle"></span>
+        <span class="glyphicon glyphicon-star favorite favorited" title="Нажмите, чтобы сохранить вопрос; нажмите снова, чтобы отменить"></span>
       {% else %}
-        <span class="glyphicon glyphicon-star-empty favorite" title="Click to mark this question as favorite; click again to toggle"></span>
+        <span class="glyphicon glyphicon-star-empty favorite" title="Нажмите, чтобы сохранить вопрос; нажмите снова, чтобы отменить"></span>
       {% endif %}
       <span class="favorite-count">{{ question.favorites }}</span>
     </div>
@@ -29,7 +29,7 @@
       <div class="question-user">
         <a href="{% url 'profile' question.user.username %}"><img src="{{ question.user.profile.get_picture }}" class="user"></a>
         <a href="{% url 'profile' question.user.username %}" class="username">{{ question.user.profile.get_screen_name }}</a>
-        <small class="asked">asked {{ question.update_date|naturaltime }}</small>
+        <small class="asked">спросил(а) {{ question.update_date|naturaltime }}</small>
       </div>
       <div class="question-description">
         {{ question.get_description_as_markdown|safe }}
@@ -43,12 +43,12 @@
       {% endif %}
     </div>
   </div>
-  <h4 class="page-header">Answers</h4>
+  <h4 class="page-header">Ответы</h4>
   <div class="answers">
     {% for answer in question.get_answers %}
       {% include 'questions/partial_answer.html' with question=question answer=answer %}
     {% endfor %}
-    <h4>Your Answer</h4>
+    <h4>Ваш ответ</h4>
     <form action="{% url 'answer' %}" method="post" role="form">
       {% csrf_token %}
       {{ form.question }}
@@ -57,7 +57,7 @@
         {{ form.description }}
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">{% trans "Post Your Answer"%}</button>
+        <button type="submit" class="btn btn-primary">{% trans "Напиши свой ответ"%}</button>
       </div>
     </form>
   </div>

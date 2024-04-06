@@ -4,7 +4,7 @@
 
 {% load humanize %}
 
-{% block title %} {% trans 'Feed' %} {% endblock %}
+{% block title %} {% trans 'Новости' %} {% endblock %}
 
 {% block head %}
   <link href="{% static 'css/feeds.css' %}" rel="stylesheet">
@@ -14,7 +14,7 @@
 
 {% block main %}
   <div class="page-header">
-    <h1>Feed</h1>
+    <h1>Новости</h1>
   </div>
   <ul class="stream">
     {% include 'feeds/partial_feed.html' with feed=feed %}

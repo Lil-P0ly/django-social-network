@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
@@ -78,7 +79,7 @@ class SignUpForm(UserCreationForm):
 
     def uniqueemailvalidator(self, value):
         if User.objects.filter(email__iexact=value).exists():
-            raise ValidationError('User with this Email already exists.')
+            raise ValidationError('Пользователь с этой почтой уже существует')
 
     def forbiddenusernamesvalidator(self, value):
         forbidden_usernames = ['admin', 'settings', 'news', 'about', 'help', 'signin', 'signup', 
@@ -91,7 +92,7 @@ class SignUpForm(UserCreationForm):
             'explore', 'rss', 'support', 'status', 'static', 'media', 'setting', 'css', 'js',
             'follow', 'activity', 'questions', 'articles', 'users',]
         if value.lower() in forbidden_usernames:
-            raise ValidationError('This is a reserved word.')
+            raise ValidationError('Это системное имя')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

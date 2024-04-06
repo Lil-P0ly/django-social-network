@@ -4,7 +4,7 @@
 {% for comment in feed.get_comments %}
   <li feed-id="{{ comment.pk }}" csrf="{{ csrf_token }}">
     {% if comment.user == user %}
-      <span class="glyphicon glyphicon-remove remove-feed" title="{% trans 'Click to remove this comment' %}"></span>
+      <span class="glyphicon glyphicon-remove remove-feed" title="{% trans 'Нажмите, чтобы удалить этот комментарий' %}"></span>
     {% endif %}
     <a href="{% url 'profile' comment.user.username %}">
       <img src="{{ comment.user.profile.get_picture }}" class="user-comment">
@@ -18,5 +18,5 @@
     <div>{{ comment.linkfy_post|safe }}</div>
   </li>
 {% empty %}
-  <li class="empty">{% trans 'Be the first one to comment' %}</li>
+  <li class="empty">{% trans 'Оставь свой комментарий первым!' %}</li>
 {% endfor %}

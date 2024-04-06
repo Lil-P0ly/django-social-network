@@ -147,14 +147,15 @@ STATIC_ROOT = BASE_DIR / 'mysite' / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'mysite' / 'static',
 ]
-MEDIA_ROOT = BASE_DIR / 'mysite' /'media'
+
+MEDIA_ROOT = BASE_DIR / 'mysite' / 'media'
 MEDIA_URL = '/media/'
 
 
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/feeds/'
 
-FILE_UPLOAD_TEMP_DIR = '/tmp/'
+FILE_UPLOAD_TEMP_DIR = BASE_DIR / 'tmp'
 FILE_UPLOAD_PERMISSIONS = 644
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

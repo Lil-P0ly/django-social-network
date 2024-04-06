@@ -53,14 +53,14 @@
       <div class="col-md-3 user-profile">
         <img src="{{ page_user.profile.get_picture }}" class="picture">
         <ul>
-          {% if page_user.profile.job_title %}
-            <li><span class="glyphicon glyphicon-briefcase"></span> {{ page_user.profile.job_title }}</li>
-          {% endif %}
           {% if page_user.profile.location %}
             <li><strong>{% trans 'Факультет: ' %}</strong> {{ page_user.profile.location }}</li>
           {% endif %}
           {% if page_user.profile.url %}
             <li><strong>{% trans 'Курс: ' %}</strong>{{ page_user.profile.url }} </li>
+          {% endif %}
+          {% if page_user.profile.job_title %}
+            <li><strong>{% trans 'Интересы: ' %}</strong> {{ page_user.profile.job_title }}</li>
           {% endif %}
         </ul>
       </div>

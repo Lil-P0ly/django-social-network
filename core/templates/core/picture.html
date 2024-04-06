@@ -31,7 +31,7 @@
       <img src="{{ user.profile.get_picture }}" style="width: 150px; border-radius: 5px; margin-bottom: 1em;">
       <form enctype="multipart/form-data" method="post" action="{% url 'upload_picture' %}" id="picture-upload-form">
         {% csrf_token %}
-        <input type="file" name="picture" style="display: none">
+        <input type="file" accept=".jpg,.png" name="picture" style="display: none">
         <button type="button" class="btn btn-default" id="btn-upload-picture">{% trans 'Загрузить новую фотографию' %}</button>
       </form>
 

@@ -70,6 +70,29 @@ def new(request):
 def delete(request):
     return HttpResponse()
 
+# TODO Реализовать удаление, поместить крестик у сообщений
+# Из feeds, удаление записи
+# @login_required
+# @ajax_required
+# def remove(request):
+#     try:
+#         feed_id = request.POST.get('feed')
+#         feed = Feed.objects.get(pk=feed_id)
+#         if feed.user == request.user:
+#             likes = feed.get_likes()
+#             parent = feed.parent
+#             for like in likes:
+#                 like.delete()
+#             feed.delete()
+#             if parent:
+#                 parent.calculate_comments()
+#             return HttpResponse()
+#         else:
+#             return HttpResponseForbidden()
+#     except Exception:
+#         return HttpResponseBadRequest()
+
+
 @login_required
 @ajax_required
 def send(request):

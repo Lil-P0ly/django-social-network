@@ -15,7 +15,7 @@
     <![endif]-->
   <style type="text/css">
     body {
-      background-color: #14213d; /* 006389,073b4c */
+      background-color: #B7C3F3; /* 006389,073b4c */
       margin-top: 60px;
     }
     .logo {
@@ -23,7 +23,7 @@
       font-size: 2em;
       font-weight: 200;
       font-family: "Audiowide", cursive;
-      color: #92c35e;
+      color: #404E5C;
       text-align: center;
       text-shadow: 1px 1px 0 #333333;
       line-height: 70px;
@@ -66,7 +66,7 @@
             {% if form.non_field_errors %}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
               {% for error in form.non_field_errors %}
-                <p>{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+                <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
               {% endfor %}
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

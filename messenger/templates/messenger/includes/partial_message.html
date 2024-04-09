@@ -1,14 +1,19 @@
-<li>
-  <img src="{{ message.from_user.profile.get_picture }}" class="picture">
-  <div>
-    <h5>
-      <small class="pull-right">
-        {{ message.date|date:'N d G:i' }}
-      </small>
-      <a href="{% url 'profile' message.from_user.username %}">
-        {{ message.from_user.profile.get_screen_name }}
-      </a>
-    </h5>
-    {{ message.message }}
-  </div>
-</li>
+{% load static %}
+
+
+{% block main %}
+  <li>
+    <img src="{{ message.from_user.profile.get_picture }}" class="picture">
+    <div style="width=device-width; overflow-wrap: break-word;">
+      <h5>
+        <small class="pull-right">
+          {{ message.date|date:'N d G:i' }}
+        </small>
+        <a href="{% url 'profile' message.from_user.username %}">
+          {{ message.from_user.profile.get_screen_name }}
+        </a>
+      </h5>
+      {{ message.message }}
+    </div>
+  </li>
+{% endblock main %}

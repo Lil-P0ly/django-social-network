@@ -14,13 +14,13 @@
         {% if user in feed.get_likers %}
           <a href="#" class="like unlike">
             <span class="glyphicon glyphicon-thumbs-up"></span>
-            <span class="text">{% trans 'Unlike' %}</span>
+            <span class="text">{% trans 'Не нравится' %}</span>
             (<span class="like-count">{{ feed.likes }}</span>)
           </a>
         {% else %}
           <a href="#" class="like">
             <span class="glyphicon glyphicon-thumbs-up"></span>
-            <span class="text">{% trans 'Like' %}</span>
+            <span class="text">{% trans 'Нравится' %}</span>
             (<span class="like-count">{{ feed.likes }}</span>)
           </a>
         {% endif %}

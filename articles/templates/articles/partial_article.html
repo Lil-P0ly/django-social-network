@@ -1,5 +1,13 @@
-<article>
-  <h2><a href="{% url 'article' article.slug %}">{{ article.title }}</a></h2>
+{% load i18n %}
+{% load static %}
+
+
+<article article-id="{{ article.pk }}" csrf="{{ csrf_token }}">
+  <h2><a href="{% url 'article' article.slug %}">{{ article.title }}</a>
+  {% if article.create_user == user %}
+      <span class="glyphicon glyphicon-remove remove-article pull-right" title="{% trans 'Нажмите, чтобы удалить это событие' %}"></span>
+  {% endif %}
+  </h2>
   <div class="info">
     <span class="date">
       <span class="glyphicon glyphicon-calendar"></span>
@@ -13,7 +21,9 @@
       <span class="glyphicon glyphicon-comment"></span>
       {{ article.get_comments.count }} Сообщений
     </span>
+
   </div>
+
   <div class="content">
     {{ article.get_content_as_markdown|safe }}
   </div>

@@ -34,6 +34,26 @@ $(function () {
     $("#comment-helper").fadeOut();
   });
 
+  $("section.articles").on("click", ".remove-article", function () {
+    var li = $(this).closest("article");
+    var article = $(li).attr("article-id");
+    var csrf = $(li).attr("csrf");
+    $.ajax({
+      url: '/articles/remove/',
+      data: {
+        'article': article,
+        'csrfmiddlewaretoken': csrf
+      },
+      type: 'post',
+      cache: false,
+      success: function (data) {
+        $(li).fadeOut(400, function () {
+          $(li).remove();
+        });
+      }
+    });
+  });
+
   $("#comment").keydown(function (evt) {
     var keyCode = evt.which?evt.which:evt.keyCode;
     if (evt.ctrlKey && (keyCode == 10 || keyCode == 13)) {

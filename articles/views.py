@@ -127,3 +127,45 @@ def comment(request):
             return HttpResponseBadRequest()
     except Exception:
         return HttpResponseBadRequest()
+
+
+@login_required
+@ajax_required
+def remove(request):
+    try:
+        if request.method == 'POST':
+            article_id = request.POST.get('article')
+            article = Article.objects.get(pk=article_id)
+            if article.create_user == request.user:
+                comments = article.get_comments()
+                for comment in comments:
+                    comment.delete()
+                article.delete()
+            return HttpResponse()
+        else:
+            return HttpResponseForbidden()
+    except Exception:
+        return HttpResponseBadRequest()
+
+
+# TODO Реализовать удаление, поместить крестик у сообщений
+# Из feeds, удаление записи
+# @login_required
+# @ajax_required
+# def remove(request):
+#     try:
+#         feed_id = request.POST.get('feed')
+#         feed = Feed.objects.get(pk=feed_id)
+#         if feed.user == request.user:
+#             likes = feed.get_likes()
+#             parent = feed.parent
+#             for like in likes:
+#                 like.delete()
+#             feed.delete()
+#             if parent:
+#                 parent.calculate_comments()
+#             return HttpResponse()
+#         else:
+#             return HttpResponseForbidden()
+#     except Exception:
+#         return HttpResponseBadRequest()

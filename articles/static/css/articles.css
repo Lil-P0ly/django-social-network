@@ -101,3 +101,15 @@ article .tags {
 .comment:last-child {
   border-bottom: none;
 }
+
+.remove-article {
+  color: #bbbbbb;
+  font-size: .8em;
+  padding-top: .2em;
+  float: right;
+  cursor: pointer;
+}
+
+.remove-article:hover {
+  color: #333333;
+}
